@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="400" height="480" fill="none">
+  <rect width="400" height="480" rx="24" fill="#0A1128"/>
+  <rect x="2" y="2" width="396" height="476" rx="22" stroke="#2563EB" stroke-width="2" stroke-opacity="0.3"/>
+  <circle cx="200" cy="170" r="70" fill="#14224D" stroke="#3B82F6" stroke-width="3"/>
+  <path d="M120 340 C120 270, 280 270, 280 340 Z" fill="#1D2E68"/>
+  <!-- Sigma Monogram -->
+  <text x="200" y="185" font-family="system-ui, sans-serif" font-size="44" font-weight="bold" fill="#F59E0B" text-anchor="middle">NC</text>
+  <!-- Text Label -->
+  <text x="200" y="385" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Naveen Choudhary</text>
+  <text x="200" y="415" font-family="system-ui, sans-serif" font-size="14" fill="#93C5FD" text-anchor="middle">Class 10 Mathematics Tutor</text>
+  <text x="200" y="440" font-family="system-ui, sans-serif" font-size="12" fill="#FBBF24" font-weight="bold" text-anchor="middle">98/100 Class 10 Maths • Bennett Univ</text>
+</svg>

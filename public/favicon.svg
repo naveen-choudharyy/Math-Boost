@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#0A1128"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#2563EB" stroke-width="2" stroke-opacity="0.4"/>
+  <!-- Cartesian grid hint -->
+  <line x1="32" y1="12" x2="32" y2="52" stroke="#1D2E68" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <line x1="12" y1="32" x2="52" y2="32" stroke="#1D2E68" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <!-- Stylized Sigma / Math 'N' symbol -->
+  <path d="M18 46 L18 18 L32 32 L46 18 L46 46" stroke="#3B82F6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46" cy="18" r="3.5" fill="#F59E0B"/>
+</svg>
