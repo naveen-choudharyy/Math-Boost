@@ -12,29 +12,29 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative py-14 md:py-20 border-t border-slate-200/60">
+    <section id="faq" className="relative py-10 md:py-16 border-t border-slate-200/60">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
-          badge="Common Queries"
+          badge="Quick Clarity"
           title="Frequently Asked Questions"
-          subtitle="Clear, direct answers regarding the 3-month Class 10 Mathematics preparation batch."
+          subtitle="Direct answers regarding the 3-month Class 10 Mathematics preparation batch."
         />
 
-        <div className="space-y-2.5">
+        <div className="space-y-2">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="glass-card rounded-2xl border border-slate-200/80 overflow-hidden"
+                className="glass-card rounded-xl border border-slate-200/80 overflow-hidden"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-4 sm:p-5 flex items-center justify-between text-left focus:outline-none hover:bg-slate-50/40 transition-colors"
+                  className="w-full p-3.5 sm:p-4 flex items-center justify-between text-left focus:outline-none hover:bg-slate-50/40 transition-colors"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900 pr-3">
+                  <span className="text-xs sm:text-sm font-bold text-slate-900 pr-2">
                     {faq.question}
                   </span>
                   <div
@@ -42,12 +42,12 @@ export default function FAQ() {
                       isOpen ? 'rotate-180 bg-blue-600 text-white' : ''
                     }`}
                   >
-                    <ChevronDown className="w-3.5 h-3.5" />
+                    <ChevronDown className="w-3 h-3" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-2.5">
+                  <div className="px-3.5 pb-3.5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-2">
                     <p>{faq.answer}</p>
                   </div>
                 )}
