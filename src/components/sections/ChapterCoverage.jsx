@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Info, BookOpen, CheckCircle2, Sparkles, HelpCircle } from 'lucide-react';
+import { ChevronDown, Info } from 'lucide-react';
 import { teacherConfig } from '../../config/teacher';
 import SectionHeading from '../ui/SectionHeading';
-import Button from '../ui/Button';
 
 export default function ChapterCoverage() {
   const { chapters } = teacherConfig;
@@ -31,25 +29,25 @@ export default function ChapterCoverage() {
   };
 
   return (
-    <section id="chapters" className="relative py-14 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="chapters" className="relative py-14 md:py-20 border-t border-slate-200/60">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
-          badge="Full Syllabus Coverage"
-          title="Interactive Chapter Coverage"
-          subtitle="All 14 NCERT Class 10 chapters. Each chapter is approached through concepts, practice, important board questions, and revision."
+          badge="Complete Curriculum"
+          title="Class 10 Syllabus Overview"
+          subtitle="All 14 standard chapters covered with emphasis on NCERT mastery, important board questions, and formula retention."
         />
 
-        {/* Filter Pills */}
-        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
+        {/* Unit Filter Tabs */}
+        <div className="flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto pb-2 mb-6 no-scrollbar">
           {units.map((unit) => (
             <button
               key={unit}
               onClick={() => setSelectedUnit(unit)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+              className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 selectedUnit === unit
                   ? 'bg-blue-600 text-white shadow-xs font-bold'
-                  : 'bg-white/80 text-slate-700 hover:text-slate-900 border border-slate-200/80'
+                  : 'bg-white/80 text-slate-600 hover:text-slate-900 border border-slate-200/80'
               }`}
             >
               {unit}
@@ -57,31 +55,31 @@ export default function ChapterCoverage() {
           ))}
         </div>
 
-        {/* 14 Chapters Glass Accordion */}
-        <div className="space-y-2.5 max-w-3xl mx-auto mb-8">
+        {/* Clean, Compact Chapter Accordion */}
+        <div className="space-y-2 max-w-3xl mx-auto mb-6">
           {filteredChapters.map((ch) => {
             const isExpanded = expandedChapter === ch.id;
             return (
               <div
                 key={ch.id}
-                className="glass-card rounded-2xl border border-slate-200/80 overflow-hidden transition-colors"
+                className="glass-card rounded-xl border border-slate-200/80 overflow-hidden"
               >
                 <button
                   onClick={() => toggleChapter(ch.id)}
-                  className="w-full p-4 flex items-center justify-between text-left focus:outline-none"
+                  className="w-full p-3.5 flex items-center justify-between text-left focus:outline-none hover:bg-slate-50/50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 font-black text-xs flex items-center justify-center flex-shrink-0">
-                      {ch.id < 10 ? `0${ch.id}` : ch.id}
+                    <span className="w-6 h-6 rounded-md bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0">
+                      {ch.id}
                     </span>
                     <div>
-                      <h3 className="text-sm sm:text-base font-bold text-slate-900">
+                      <h3 className="text-sm font-bold text-slate-900">
                         {ch.title}
                       </h3>
-                      <div className="flex items-center gap-2 text-xs text-slate-500">
+                      <div className="flex items-center gap-2 text-[11px] text-slate-500">
                         <span>{ch.unit}</span>
                         <span>•</span>
-                        <span className="font-semibold text-amber-600">{ch.weightage}</span>
+                        <span className="text-amber-700 font-semibold">{ch.weightage}</span>
                       </div>
                     </div>
                   </div>
@@ -94,36 +92,16 @@ export default function ChapterCoverage() {
                 </button>
 
                 {isExpanded && (
-                  <div className="p-4 pt-2 border-t border-slate-100 bg-slate-50/60 text-xs">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 py-1">
-                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
-                        <span className="font-bold text-blue-700 block mb-0.5">Concepts</span>
-                        <p className="text-slate-600">{ch.concepts}</p>
+                  <div className="px-4 pb-3.5 pt-1 border-t border-slate-100 bg-slate-50/50 text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                      <div>
+                        <span className="font-bold text-blue-700 block text-[11px]">Core Concepts:</span>
+                        <p className="text-slate-600 leading-relaxed">{ch.concepts}</p>
                       </div>
-                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
-                        <span className="font-bold text-emerald-700 block mb-0.5">Practice</span>
-                        <p className="text-slate-600">{ch.practice}</p>
+                      <div>
+                        <span className="font-bold text-amber-700 block text-[11px]">Board Focus Questions:</span>
+                        <p className="text-slate-600 leading-relaxed">{ch.importantQuestions}</p>
                       </div>
-                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
-                        <span className="font-bold text-amber-700 block mb-0.5">Important Questions</span>
-                        <p className="text-slate-600">{ch.importantQuestions}</p>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
-                        <span className="font-bold text-purple-700 block mb-0.5">Revision</span>
-                        <p className="text-slate-600">{ch.revision}</p>
-                      </div>
-                    </div>
-
-                    <div className="mt-2.5 pt-2 border-t border-slate-200/70 flex items-center justify-between">
-                      <span className="text-[11px] text-slate-500">Want focused help on {ch.title}?</span>
-                      <Button
-                        customMessage={`Hi Naveen, I have a question regarding chapter ${ch.title} in Class 10 Maths.`}
-                        variant="ghost"
-                        size="sm"
-                        className="text-xs text-blue-700 hover:text-blue-900"
-                      >
-                        Ask on WhatsApp →
-                      </Button>
                     </div>
                   </div>
                 )}
@@ -133,20 +111,9 @@ export default function ChapterCoverage() {
         </div>
 
         {/* Syllabus Note */}
-        <div className="max-w-xl mx-auto flex items-center justify-center gap-2 p-3 rounded-xl bg-white/70 border border-slate-200/70 text-xs text-slate-600 text-center mb-8 shadow-xs">
-          <Info className="w-4 h-4 text-blue-600 flex-shrink-0" />
-          <span>Syllabus may be adapted according to the student's board/school syllabus.</span>
-        </div>
-
-        <div className="text-center">
-          <Button
-            whatsappType="program"
-            variant="whatsapp"
-            size="md"
-            trackingEvent="chapters_section_whatsapp_click"
-          >
-            DISCUSS CHAPTER SCHEDULE ON WHATSAPP
-          </Button>
+        <div className="max-w-lg mx-auto flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white/70 border border-slate-200/70 text-xs text-slate-600 text-center shadow-xs">
+          <Info className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+          <span>Syllabus may be adapted according to the student's specific school or board curriculum.</span>
         </div>
 
       </div>

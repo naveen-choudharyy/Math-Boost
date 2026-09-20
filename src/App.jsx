@@ -4,14 +4,12 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingCTA from './components/layout/FloatingCTA';
 
-// Streamlined Section components
+// Section components in clean, logical order
 import Hero from './components/sections/Hero';
-import BatchStatus from './components/sections/BatchStatus';
-import Timeline from './components/sections/Timeline';
+import ProfileSummary from './components/sections/ProfileSummary';
+import ProgramPlan from './components/sections/ProgramPlan';
 import TeachingMethod from './components/sections/TeachingMethod';
-import Deliverables from './components/sections/Deliverables';
 import ChapterCoverage from './components/sections/ChapterCoverage';
-import TeacherJourney from './components/sections/TeacherJourney';
 import FAQ from './components/sections/FAQ';
 import FinalCTA from './components/sections/FinalCTA';
 
@@ -26,14 +24,25 @@ export default function App() {
         <Navbar />
 
         <main className="flex-grow">
+          {/* 1. Introduction */}
           <Hero />
-          <BatchStatus />
-          <Timeline />
+
+          {/* 2. Profile Summary with Big Photo on Left & All Details on Right */}
+          <ProfileSummary />
+
+          {/* 3. Batch Details & 3-Month Plan */}
+          <ProgramPlan />
+
+          {/* 4. Teaching Method & Key Inclusions */}
           <TeachingMethod />
-          <Deliverables />
+
+          {/* 5. 14-Chapter Syllabus Overview */}
           <ChapterCoverage />
-          <TeacherJourney />
+
+          {/* 6. FAQ Accordion */}
           <FAQ />
+
+          {/* 7. Final Clean WhatsApp Conversion */}
           <FinalCTA />
         </main>
 

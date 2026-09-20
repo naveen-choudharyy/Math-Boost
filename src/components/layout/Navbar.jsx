@@ -16,11 +16,10 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '#hero' },
-    { label: 'Batch Info', href: '#batch-status' },
-    { label: '3-Month Plan', href: '#timeline' },
+    { label: 'Profile', href: '#about' },
+    { label: 'Program & Plan', href: '#program' },
     { label: 'Method', href: '#teaching' },
     { label: 'Syllabus', href: '#chapters' },
-    { label: 'About', href: '#about' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -28,8 +27,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-white/85 backdrop-blur-xl border-b border-slate-200/80 py-3 shadow-xs'
-          : 'bg-white/50 backdrop-blur-md py-4'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/80 py-3 shadow-xs'
+          : 'bg-white/60 backdrop-blur-md py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,14 +39,14 @@ export default function Navbar() {
             className="flex items-center gap-2.5 group focus:outline-none"
             aria-label="Naveen Maths"
           >
-            <div className="w-10 h-10 rounded-xl bg-blue-600 border border-blue-500/20 flex items-center justify-center text-white shadow-glow-blue group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-blue-600 border border-blue-500/20 flex items-center justify-center text-white shadow-glow-blue group-hover:scale-105 transition-transform">
               <Sigma className="w-5 h-5 text-amber-300" />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-black tracking-wider text-slate-900 uppercase leading-none font-sans">
+              <span className="text-base font-black tracking-wider text-slate-900 uppercase leading-none font-sans">
                 NAVEEN
               </span>
-              <span className="text-xs font-black tracking-widest text-blue-600 uppercase leading-none mt-1">
+              <span className="text-[11px] font-black tracking-widest text-blue-600 uppercase leading-none mt-1">
                 MATHS
               </span>
             </div>
@@ -66,7 +65,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop WhatsApp Action */}
+          {/* Desktop Single WhatsApp Action */}
           <div className="hidden sm:flex items-center gap-3">
             <Button
               whatsappType="enrollment"
@@ -74,7 +73,7 @@ export default function Navbar() {
               variant="whatsapp"
               trackingEvent="navbar_whatsapp_click"
             >
-              Enroll on WhatsApp
+              Enquire on WhatsApp
             </Button>
           </div>
 
@@ -91,7 +90,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-white/95 border-b border-slate-200/80 px-4 pt-3 pb-6 shadow-xl backdrop-blur-xl">
+        <div className="lg:hidden bg-white/98 border-b border-slate-200/80 px-4 pt-3 pb-6 shadow-xl backdrop-blur-xl">
           <nav className="flex flex-col space-y-1.5">
             {navLinks.map((link) => (
               <a
@@ -112,7 +111,7 @@ export default function Navbar() {
                 trackingEvent="mobile_nav_whatsapp_click"
                 onClick={() => setIsOpen(false)}
               >
-                Enroll on WhatsApp
+                Enquire on WhatsApp
               </Button>
             </div>
           </nav>
