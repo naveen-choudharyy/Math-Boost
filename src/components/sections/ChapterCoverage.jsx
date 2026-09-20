@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-  BookOpen,
-  CheckCircle2,
-  HelpCircle,
-  Sparkles,
-  ChevronDown,
-  Info,
-} from 'lucide-react';
+import { ChevronDown, Info, BookOpen, CheckCircle2, Sparkles, HelpCircle } from 'lucide-react';
 import { teacherConfig } from '../../config/teacher';
 import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
@@ -38,25 +31,25 @@ export default function ChapterCoverage() {
   };
 
   return (
-    <section id="chapters" className="relative py-16 md:py-24 bg-navy-950/80 border-t border-blue-500/15">
+    <section id="chapters" className="relative py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
-          badge="Complete NCERT / Board Syllabus"
+          badge="Full Syllabus Coverage"
           title="Interactive Chapter Coverage"
-          subtitle="Explore all 14 Class 10 Mathematics chapters. Each chapter is approached through concepts, practice, board questions, and revision."
+          subtitle="All 14 NCERT Class 10 chapters. Each chapter is approached through concepts, practice, important board questions, and revision."
         />
 
-        {/* Unit Filter Tabs */}
-        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+        {/* Filter Pills */}
+        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
           {units.map((unit) => (
             <button
               key={unit}
               onClick={() => setSelectedUnit(unit)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 selectedUnit === unit
-                  ? 'bg-brand-blue text-white shadow-glow-blue font-bold'
-                  : 'bg-navy-900/80 text-slate-300 hover:text-white hover:bg-navy-800 border border-blue-500/15'
+                  ? 'bg-blue-600 text-white shadow-xs font-bold'
+                  : 'bg-white/80 text-slate-700 hover:text-slate-900 border border-slate-200/80'
               }`}
             >
               {unit}
@@ -64,127 +57,87 @@ export default function ChapterCoverage() {
           ))}
         </div>
 
-        {/* Chapters Accordion List */}
-        <div className="space-y-3.5 max-w-4xl mx-auto mb-10">
+        {/* 14 Chapters Glass Accordion */}
+        <div className="space-y-2.5 max-w-3xl mx-auto mb-8">
           {filteredChapters.map((ch) => {
             const isExpanded = expandedChapter === ch.id;
             return (
-              <motion.div
+              <div
                 key={ch.id}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="rounded-2xl glass-card border border-blue-500/20 overflow-hidden transition-colors hover:border-blue-400/40"
+                className="glass-card rounded-2xl border border-slate-200/80 overflow-hidden transition-colors"
               >
-                {/* Chapter Header Card */}
                 <button
                   onClick={() => toggleChapter(ch.id)}
-                  className="w-full p-4 sm:p-5 flex items-center justify-between text-left focus:outline-none"
+                  className="w-full p-4 flex items-center justify-between text-left focus:outline-none"
                 >
-                  <div className="flex items-center gap-3.5">
-                    <span className="w-8 h-8 rounded-xl bg-blue-900/60 border border-blue-400/30 text-blue-300 font-extrabold text-sm flex items-center justify-center flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <span className="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 font-black text-xs flex items-center justify-center flex-shrink-0">
                       {ch.id < 10 ? `0${ch.id}` : ch.id}
                     </span>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-white">
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900">
                         {ch.title}
                       </h3>
-                      <div className="flex items-center gap-2 mt-0.5">
-                        <span className="text-xs text-blue-400 font-medium">
-                          {ch.unit}
-                        </span>
-                        <span className="text-[10px] text-slate-400">•</span>
-                        <span className="text-xs text-amber-400 font-medium">
-                          {ch.weightage}
-                        </span>
+                      <div className="flex items-center gap-2 text-xs text-slate-500">
+                        <span>{ch.unit}</span>
+                        <span>•</span>
+                        <span className="font-semibold text-amber-600">{ch.weightage}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-medium text-slate-400 hidden sm:inline">
-                      {isExpanded ? 'Hide Details' : 'View Plan'}
-                    </span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
-                        isExpanded ? 'rotate-180 text-blue-400' : ''
-                      }`}
-                    />
-                  </div>
+                  <ChevronDown
+                    className={`w-4 h-4 text-slate-400 transition-transform ${
+                      isExpanded ? 'rotate-180 text-blue-600' : ''
+                    }`}
+                  />
                 </button>
 
-                {/* Expanded Details: Concepts, Practice, Important Questions, Revision */}
                 {isExpanded && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="p-5 pt-1 border-t border-slate-800/80 bg-navy-950/60 text-xs sm:text-sm"
-                  >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-2">
-                      <div className="p-3 rounded-xl bg-navy-900/50 border border-blue-500/10">
-                        <div className="font-bold text-blue-400 mb-1 flex items-center gap-1.5">
-                          <BookOpen className="w-3.5 h-3.5" />
-                          <span>Concepts</span>
-                        </div>
-                        <p className="text-slate-300">{ch.concepts}</p>
+                  <div className="p-4 pt-2 border-t border-slate-100 bg-slate-50/60 text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 py-1">
+                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
+                        <span className="font-bold text-blue-700 block mb-0.5">Concepts</span>
+                        <p className="text-slate-600">{ch.concepts}</p>
                       </div>
-
-                      <div className="p-3 rounded-xl bg-navy-900/50 border border-blue-500/10">
-                        <div className="font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5" />
-                          <span>Practice</span>
-                        </div>
-                        <p className="text-slate-300">{ch.practice}</p>
+                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
+                        <span className="font-bold text-emerald-700 block mb-0.5">Practice</span>
+                        <p className="text-slate-600">{ch.practice}</p>
                       </div>
-
-                      <div className="p-3 rounded-xl bg-navy-900/50 border border-blue-500/10">
-                        <div className="font-bold text-amber-400 mb-1 flex items-center gap-1.5">
-                          <Sparkles className="w-3.5 h-3.5" />
-                          <span>Important Questions</span>
-                        </div>
-                        <p className="text-slate-300">{ch.importantQuestions}</p>
+                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
+                        <span className="font-bold text-amber-700 block mb-0.5">Important Questions</span>
+                        <p className="text-slate-600">{ch.importantQuestions}</p>
                       </div>
-
-                      <div className="p-3 rounded-xl bg-navy-900/50 border border-blue-500/10">
-                        <div className="font-bold text-purple-400 mb-1 flex items-center gap-1.5">
-                          <HelpCircle className="w-3.5 h-3.5" />
-                          <span>Revision</span>
-                        </div>
-                        <p className="text-slate-300">{ch.revision}</p>
+                      <div className="p-2.5 rounded-xl bg-white border border-slate-200/60">
+                        <span className="font-bold text-purple-700 block mb-0.5">Revision</span>
+                        <p className="text-slate-600">{ch.revision}</p>
                       </div>
                     </div>
 
-                    <div className="mt-3 pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
-                      <span className="text-[11px] text-slate-400 italic">
-                        Want focused help on {ch.title}?
-                      </span>
+                    <div className="mt-2.5 pt-2 border-t border-slate-200/70 flex items-center justify-between">
+                      <span className="text-[11px] text-slate-500">Want focused help on {ch.title}?</span>
                       <Button
-                        customMessage={`Hi Naveen, I would like to ask about chapter ${ch.title} in your 3-month Class 10 Maths batch.`}
+                        customMessage={`Hi Naveen, I have a question regarding chapter ${ch.title} in Class 10 Maths.`}
                         variant="ghost"
                         size="sm"
-                        className="text-xs text-blue-400 hover:text-white"
+                        className="text-xs text-blue-700 hover:text-blue-900"
                       >
-                        Ask About This Chapter on WhatsApp →
+                        Ask on WhatsApp →
                       </Button>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Syllabus Note */}
-        <div className="max-w-2xl mx-auto flex items-center justify-center gap-2 p-3.5 rounded-xl bg-blue-950/40 border border-blue-500/20 text-xs text-slate-300 text-center mb-8">
-          <Info className="w-4 h-4 text-blue-400 flex-shrink-0" />
-          <span>
-            Syllabus may be adapted according to the student's board/school syllabus.
-          </span>
+        <div className="max-w-xl mx-auto flex items-center justify-center gap-2 p-3 rounded-xl bg-white/70 border border-slate-200/70 text-xs text-slate-600 text-center mb-8 shadow-xs">
+          <Info className="w-4 h-4 text-blue-600 flex-shrink-0" />
+          <span>Syllabus may be adapted according to the student's board/school syllabus.</span>
         </div>
 
-        {/* Chapter Section CTA */}
         <div className="text-center">
           <Button
             whatsappType="program"

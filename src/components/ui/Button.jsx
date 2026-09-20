@@ -37,25 +37,25 @@ export default function Button({
   };
 
   const baseStyles =
-    'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy-950';
+    'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white';
 
   const sizeStyles = {
     sm: 'px-3.5 py-1.5 text-xs gap-1.5',
     md: 'px-5 py-2.5 text-sm md:text-base gap-2',
-    lg: 'px-7 py-3.5 text-base md:text-lg gap-2.5 shadow-lg',
+    lg: 'px-7 py-3.5 text-base md:text-lg gap-2.5 shadow-md',
   };
 
   const variantStyles = {
     whatsapp:
       'bg-whatsapp text-white hover:bg-whatsapp-hover shadow-glow-whatsapp focus:ring-whatsapp font-bold',
     primary:
-      'bg-brand-blue text-white hover:bg-blue-600 shadow-glow-blue focus:ring-brand-blue font-bold',
+      'bg-brand-blue text-white hover:bg-blue-700 shadow-glow-blue focus:ring-brand-blue font-bold',
     amber:
-      'bg-amber-500 text-navy-950 hover:bg-amber-400 shadow-glow-amber focus:ring-amber-400 font-bold',
+      'bg-amber-500 text-slate-950 hover:bg-amber-400 shadow-sm focus:ring-amber-400 font-bold',
     secondary:
-      'bg-navy-800/80 hover:bg-navy-700 text-slate-100 border border-blue-500/20 hover:border-blue-400/40 focus:ring-blue-400',
+      'bg-white/85 hover:bg-white text-slate-800 border border-slate-200/90 shadow-sm hover:border-slate-300 focus:ring-slate-300',
     ghost:
-      'bg-transparent hover:bg-navy-800/60 text-slate-300 hover:text-white border border-transparent focus:ring-slate-400',
+      'bg-transparent hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-transparent focus:ring-slate-300',
   };
 
   const chosenIcon = Icon || (isWhatsApp ? MessageCircle : null);
@@ -69,7 +69,7 @@ export default function Button({
         onClick={handleClick}
         target={target}
         rel={rel}
-        whileHover={{ scale: 1.02 }}
+        whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.98 }}
         className={classes}
         {...props}
@@ -83,7 +83,7 @@ export default function Button({
   return (
     <motion.button
       onClick={handleClick}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.015 }}
       whileTap={{ scale: 0.98 }}
       className={classes}
       {...props}

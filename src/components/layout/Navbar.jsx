@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle, Sigma } from 'lucide-react';
+import { Menu, X, Sigma } from 'lucide-react';
 import Button from '../ui/Button';
 
 export default function Navbar() {
@@ -16,57 +16,57 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '#hero' },
-    { label: 'Program', href: '#batch-status' },
+    { label: 'Batch Info', href: '#batch-status' },
     { label: '3-Month Plan', href: '#timeline' },
-    { label: 'Teaching', href: '#teaching' },
-    { label: 'Chapters', href: '#chapters' },
+    { label: 'Method', href: '#teaching' },
+    { label: 'Syllabus', href: '#chapters' },
     { label: 'About', href: '#about' },
     { label: 'FAQ', href: '#faq' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-navy-950/90 backdrop-blur-md border-b border-blue-500/20 py-3 shadow-xl'
-          : 'bg-transparent py-5'
+          ? 'bg-white/85 backdrop-blur-xl border-b border-slate-200/80 py-3 shadow-xs'
+          : 'bg-white/50 backdrop-blur-md py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Brand Logo */}
           <a
             href="#hero"
-            className="flex items-center gap-2.5 group transition-transform focus:outline-none"
-            aria-label="Naveen Maths - Class 10 Mathematics Tutor"
+            className="flex items-center gap-2.5 group focus:outline-none"
+            aria-label="Naveen Maths"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-navy-800 border border-blue-400/40 flex items-center justify-center text-white shadow-glow-blue group-hover:scale-105 transition-transform">
-              <Sigma className="w-5 h-5 text-amber-400" />
+            <div className="w-10 h-10 rounded-xl bg-blue-600 border border-blue-500/20 flex items-center justify-center text-white shadow-glow-blue group-hover:scale-105 transition-transform">
+              <Sigma className="w-5 h-5 text-amber-300" />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-black tracking-wider text-white uppercase leading-none font-sans">
+              <span className="text-lg font-black tracking-wider text-slate-900 uppercase leading-none font-sans">
                 NAVEEN
               </span>
-              <span className="text-xs font-extrabold tracking-widest text-blue-400 uppercase leading-none mt-1">
+              <span className="text-xs font-black tracking-widest text-blue-600 uppercase leading-none mt-1">
                 MATHS
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-blue-900/30 rounded-lg transition-colors"
+                className="px-3.5 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-100/70 rounded-lg transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Desktop Right WhatsApp CTA */}
+          {/* Desktop WhatsApp Action */}
           <div className="hidden sm:flex items-center gap-3">
             <Button
               whatsappType="enrollment"
@@ -81,7 +81,7 @@ export default function Navbar() {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white hover:bg-navy-800/80 transition-colors focus:outline-none"
+            className="lg:hidden p-2 rounded-xl text-slate-700 hover:text-slate-950 hover:bg-slate-100 transition-colors focus:outline-none"
             aria-label="Toggle Navigation Menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -91,19 +91,19 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-navy-950/98 border-b border-blue-500/20 px-4 pt-4 pb-6 mt-3 shadow-2xl backdrop-blur-xl animate-fadeIn">
-          <nav className="flex flex-col space-y-2">
+        <div className="lg:hidden bg-white/95 border-b border-slate-200/80 px-4 pt-3 pb-6 shadow-xl backdrop-blur-xl">
+          <nav className="flex flex-col space-y-1.5">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2.5 text-base font-semibold text-slate-200 hover:text-white hover:bg-blue-900/40 rounded-xl transition-colors"
+                className="px-4 py-2 text-base font-semibold text-slate-800 hover:text-blue-600 hover:bg-blue-50/70 rounded-xl transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <div className="pt-3 border-t border-slate-800">
+            <div className="pt-3 border-t border-slate-200/80">
               <Button
                 whatsappType="enrollment"
                 size="md"

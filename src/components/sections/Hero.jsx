@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ShieldCheck, Sparkles, ArrowRight, UserCheck, Award } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 import { teacherConfig } from '../../config/teacher';
 import Button from '../ui/Button';
 import StatBadge from '../ui/StatBadge';
@@ -9,63 +9,63 @@ export default function Hero() {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+    <section id="hero" className="relative pt-24 pb-14 md:pt-32 md:pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* Left Column: Value Proposition & Headlines */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          {/* Left Column: Core Value Proposition */}
+          <div className="lg:col-span-7 space-y-5 text-left">
             {/* Batch Badge */}
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900/50 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-semibold tracking-wide shadow-sm"
+              transition={{ duration: 0.35 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-blue-200/80 text-blue-700 text-xs sm:text-sm font-bold tracking-wide shadow-xs backdrop-blur-md"
             >
-              <Sparkles className="w-4 h-4 text-amber-400" />
+              <Sparkles className="w-4 h-4 text-amber-500" />
               <span>{teacherConfig.program.badge}</span>
             </motion.div>
 
             {/* Main Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]"
+              transition={{ duration: 0.45, delay: 0.08 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]"
             >
               3 Months to <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-amber-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600">
                 Exam-Ready Mathematics.
               </span>
             </motion.h1>
 
             {/* Supporting Headline */}
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed font-normal max-w-2xl"
+              transition={{ duration: 0.45, delay: 0.15 }}
+              className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl"
             >
               {teacherConfig.program.tagline}
             </motion.p>
 
-            {/* Credential Callouts (Class 10 98/100, 95.80%, Class 12 95/100) */}
+            {/* Verified Credential Badges */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-lg py-2"
+              transition={{ duration: 0.45, delay: 0.22 }}
+              className="grid grid-cols-3 gap-2.5 sm:gap-3.5 max-w-lg py-1"
             >
               <StatBadge
                 score={teacherConfig.credentials.class10Maths}
                 label="Class 10 Maths"
-                sublabel="Score in Board Exam"
+                sublabel="Board Exam"
                 highlight={true}
               />
               <StatBadge
                 score={teacherConfig.credentials.class10Overall}
                 label="Class 10 Overall"
-                sublabel="Aggregate Score"
+                sublabel="Aggregate"
               />
               <StatBadge
                 score={teacherConfig.credentials.class12Maths}
@@ -74,12 +74,12 @@ export default function Hero() {
               />
             </motion.div>
 
-            {/* Action Buttons */}
+            {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2"
+              transition={{ duration: 0.45, delay: 0.28 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2"
             >
               <Button
                 whatsappType="hero"
@@ -96,7 +96,7 @@ export default function Hero() {
                 variant="secondary"
                 size="lg"
                 icon={ArrowRight}
-                className="w-full sm:w-auto text-slate-200 hover:text-white"
+                className="w-full sm:w-auto"
               >
                 VIEW 3-MONTH PLAN
               </Button>
@@ -106,27 +106,24 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 pt-1"
+              transition={{ duration: 0.4, delay: 0.35 }}
+              className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 pt-0.5"
             >
-              <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               <span>{teacherConfig.program.trustLine}</span>
             </motion.div>
           </div>
 
-          {/* Right Column: Teacher Credibility Profile Card */}
+          {/* Right Column: Frosted Glass Profile Card */}
           <div className="lg:col-span-5">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative rounded-3xl p-6 sm:p-7 glass-card border border-blue-400/25 shadow-2xl overflow-hidden"
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="glass-panel p-6 sm:p-7 rounded-3xl border border-white/90 shadow-glass"
             >
-              {/* Background Accent Glow */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
-
-              {/* Teacher Image / Avatar Section */}
-              <div className="relative mb-5 rounded-2xl overflow-hidden bg-navy-900 border border-blue-500/20 aspect-[4/3] flex items-center justify-center">
+              {/* Profile Image / Monogram Fallback */}
+              <div className="relative mb-5 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-[4/3] flex items-center justify-center shadow-inner">
                 {!imgError ? (
                   <img
                     src={teacherConfig.teacherPhoto}
@@ -135,61 +132,58 @@ export default function Hero() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="flex flex-col items-center justify-center text-center p-6 space-y-3">
-                    <div className="w-20 h-20 rounded-full bg-blue-900/60 border-2 border-amber-400/60 flex items-center justify-center text-2xl font-black text-amber-400">
+                  <div className="flex flex-col items-center justify-center text-center p-6 space-y-2">
+                    <div className="w-16 h-16 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center text-xl font-black text-white shadow-md">
                       NC
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">
+                      <div className="text-lg font-bold text-slate-900">
                         {teacherConfig.teacherName}
                       </div>
-                      <div className="text-sm text-blue-300">
+                      <div className="text-xs font-semibold text-blue-600">
                         {teacherConfig.roleTitle}
                       </div>
                     </div>
                   </div>
                 )}
 
-                {/* Badge Overlay */}
-                <div className="absolute bottom-3 left-3 right-3 bg-navy-950/85 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 flex items-center justify-between text-xs">
-                  <span className="text-slate-300 font-medium">Academic Tutor</span>
-                  <span className="text-amber-400 font-bold">Class 10 Specialist</span>
+                {/* Sub-badge */}
+                <div className="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200/80 flex items-center justify-between text-xs shadow-xs">
+                  <span className="text-slate-700 font-semibold">Personal Tutor</span>
+                  <span className="text-blue-700 font-extrabold">Class 10 Specialist</span>
                 </div>
               </div>
 
               {/* Credential Details */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                  <span className="text-xs sm:text-sm text-slate-400 font-medium">Tutor</span>
-                  <span className="text-sm sm:text-base font-bold text-white">
-                    {teacherConfig.teacherName}
-                  </span>
+              <div className="space-y-2.5 text-xs sm:text-sm">
+                <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                  <span className="text-slate-500 font-medium">Tutor</span>
+                  <span className="font-bold text-slate-900">{teacherConfig.teacherName}</span>
                 </div>
 
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                  <span className="text-xs sm:text-sm text-slate-400 font-medium">Education</span>
-                  <span className="text-xs sm:text-sm font-semibold text-blue-300 text-right">
+                <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                  <span className="text-slate-500 font-medium">Education</span>
+                  <span className="font-semibold text-blue-700 text-right">
                     {teacherConfig.credentials.degree}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                  <span className="text-xs sm:text-sm text-slate-400 font-medium">University</span>
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200">
+                <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                  <span className="text-slate-500 font-medium">University</span>
+                  <span className="font-semibold text-slate-700">
                     {teacherConfig.credentials.university}
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between pb-1">
-                  <span className="text-xs sm:text-sm text-slate-400 font-medium">Academic Standing</span>
-                  <span className="text-xs sm:text-sm font-bold text-amber-400">
+                  <span className="text-slate-500 font-medium">Academic Standing</span>
+                  <span className="font-black text-amber-600">
                     Current CGPA: {teacherConfig.credentials.currentCGPA}
                   </span>
                 </div>
               </div>
 
-              {/* Direct WhatsApp Prompt */}
-              <div className="mt-5 pt-4 border-t border-slate-800/80">
+              <div className="mt-5 pt-3 border-t border-slate-200/80">
                 <Button
                   whatsappType="hero"
                   variant="whatsapp"

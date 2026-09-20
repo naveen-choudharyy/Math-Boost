@@ -7,13 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: '#060B18',
-          900: '#0A1128',
-          850: '#0F1A3A',
-          800: '#14224D',
-          700: '#1D2E68',
-          600: '#283E89',
+        surface: {
+          50: '#F8FAFC',
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+        },
+        brand: {
+          navy: '#0F172A',
+          slate: '#334155',
+          blue: '#2563EB',
+          sky: '#0EA5E9',
+          accent: '#F59E0B',
         },
         whatsapp: {
           DEFAULT: '#25D366',
@@ -21,24 +26,31 @@ export default {
           dark: '#128C7E',
           surface: '#EBF9F1',
         },
-        brand: {
-          blue: '#2563EB',
-          cyan: '#06B6D4',
-          accent: '#F59E0B',
-        }
       },
       fontFamily: {
         sans: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        math: ['KaTeX_Main', 'Cambria Math', 'serif'],
       },
       boxShadow: {
-        'glow-blue': '0 0 25px -5px rgba(37, 99, 235, 0.4)',
-        'glow-whatsapp': '0 0 25px -5px rgba(37, 211, 102, 0.4)',
-        'glow-amber': '0 0 25px -5px rgba(245, 158, 11, 0.3)',
+        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+        'glass-hover': '0 12px 36px 0 rgba(31, 38, 135, 0.12)',
+        'glow-blue': '0 10px 25px -5px rgba(37, 99, 235, 0.3)',
+        'glow-whatsapp': '0 10px 25px -5px rgba(37, 211, 102, 0.35)',
       },
       animation: {
+        'float-slow': 'float 12s ease-in-out infinite alternate',
+        'float-reverse': 'floatReverse 14s ease-in-out infinite alternate',
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      }
+      },
+      keyframes: {
+        float: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '100%': { transform: 'translate(40px, 30px) scale(1.08)' },
+        },
+        floatReverse: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '100%': { transform: 'translate(-35px, -25px) scale(1.06)' },
+        },
+      },
     },
   },
   plugins: [],

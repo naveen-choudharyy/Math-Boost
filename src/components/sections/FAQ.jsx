@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { teacherConfig } from '../../config/teacher';
 import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
@@ -14,8 +14,8 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative py-16 md:py-24 bg-navy-950/80 border-t border-blue-500/15">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="relative py-14 md:py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
           badge="Clear Answers"
@@ -23,60 +23,49 @@ export default function FAQ() {
           subtitle="Everything you need to know about the 3-month Class 10 Mathematics preparation program."
         />
 
-        {/* Accordion list */}
-        <div className="space-y-3.5 mb-12">
+        <div className="space-y-2.5 mb-10">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.04 }}
-                className="rounded-2xl glass-card border border-blue-500/20 overflow-hidden transition-colors"
+                className="glass-card rounded-2xl border border-slate-200/80 overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none"
+                  className="w-full p-4 sm:p-5 flex items-center justify-between text-left focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-bold text-white pr-4">
+                  <span className="text-sm sm:text-base font-bold text-slate-900 pr-3">
                     {faq.question}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-full bg-blue-900/40 flex items-center justify-center text-blue-400 flex-shrink-0 transition-transform duration-200 ${
+                    className={`w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 flex-shrink-0 transition-transform ${
                       isOpen ? 'rotate-180 bg-blue-600 text-white' : ''
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-3.5 h-3.5" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="px-5 pb-6 sm:px-6 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-3"
-                  >
+                  <div className="px-4 pb-5 sm:px-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-2.5">
                     <p>{faq.answer}</p>
-                  </motion.div>
+                  </div>
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
-        {/* Still have questions banner */}
-        <div className="p-6 rounded-2xl bg-navy-900/60 border border-blue-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        {/* Custom Question Card */}
+        <div className="glass-panel p-5 rounded-2xl border border-white/90 shadow-glass flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <h4 className="text-base font-bold text-white">
+            <h4 className="text-sm font-bold text-slate-900">
               Have a question not listed here?
             </h4>
-            <p className="text-xs sm:text-sm text-slate-400">
-              Message me directly on WhatsApp for immediate clarification.
+            <p className="text-xs text-slate-500">
+              Message me directly on WhatsApp for immediate clarity.
             </p>
           </div>
           <Button

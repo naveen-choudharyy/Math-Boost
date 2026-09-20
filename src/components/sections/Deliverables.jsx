@@ -19,7 +19,6 @@ import Button from '../ui/Button';
 export default function Deliverables() {
   const { deliverables } = teacherConfig;
 
-  // Icon mapping for each deliverable item
   const iconMap = [
     BookOpen,
     ListOrdered,
@@ -34,49 +33,48 @@ export default function Deliverables() {
   ];
 
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
-          badge="Complete Deliverables"
+          badge="Batch Inclusions"
           title="What Students Will Get"
-          subtitle="Everything you need to master Class 10 Mathematics under one disciplined, personal tutoring program."
+          subtitle="A complete, focused set of resources and mentorship built for Class 10 Board exam success."
         />
 
-        {/* 10 Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 mb-12">
+        {/* 10 Clean Frosted Glass Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 mb-10">
           {deliverables.map((item, index) => {
-            const IconComponent = iconMap[index % iconMap.length];
+            const Icon = iconMap[index % iconMap.length];
             return (
               <motion.div
                 key={item.id || index}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: index * 0.05 }}
-                className="p-5 rounded-2xl glass-card glass-card-hover flex flex-col justify-between border border-blue-500/15"
+                transition={{ duration: 0.3, delay: index * 0.04 }}
+                className="glass-card p-4 sm:p-5 rounded-2xl border border-slate-200/80 hover:bg-white transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-blue-900/50 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-3.5 shadow-sm">
-                    <IconComponent className="w-5 h-5" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-2.5">
+                    <Icon className="w-4 h-4" />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2 leading-snug">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
-                <div className="pt-3 mt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] font-semibold text-blue-400">
+                <div className="pt-2.5 mt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-blue-600">
                   <span>Included</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Deliverable Call to Action */}
         <div className="text-center">
           <Button
             whatsappType="program"

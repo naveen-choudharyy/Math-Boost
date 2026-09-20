@@ -4,19 +4,19 @@ import { motion } from 'framer-motion';
 export default function StatBadge({ score, label, sublabel, highlight = false }) {
   return (
     <motion.div
-      whileHover={{ y: -4 }}
-      className={`relative p-4 sm:p-5 rounded-2xl transition-all duration-300 ${
+      whileHover={{ y: -3 }}
+      className={`p-4 sm:p-5 rounded-2xl transition-all duration-200 text-center glass-card ${
         highlight
-          ? 'bg-gradient-to-br from-blue-900/60 to-navy-900/90 border-2 border-blue-400/50 shadow-glow-blue'
-          : 'bg-navy-900/70 border border-blue-500/20'
-      } backdrop-blur-md text-center`}
+          ? 'border-blue-300/80 bg-white/90 shadow-glass'
+          : 'border-slate-200/80 bg-white/75'
+      }`}
     >
-      <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white font-sans">
-        <span className={highlight ? 'text-amber-400' : 'text-blue-400'}>{score}</span>
+      <div className="text-2xl sm:text-3xl font-black tracking-tight font-sans">
+        <span className={highlight ? 'text-blue-600' : 'text-slate-900'}>{score}</span>
       </div>
-      <div className="mt-1 text-xs sm:text-sm font-bold text-slate-200">{label}</div>
+      <div className="mt-1 text-xs sm:text-sm font-bold text-slate-800">{label}</div>
       {sublabel && (
-        <div className="mt-0.5 text-[11px] sm:text-xs text-slate-400 font-medium">
+        <div className="mt-0.5 text-[11px] sm:text-xs text-slate-500 font-medium">
           {sublabel}
         </div>
       )}
